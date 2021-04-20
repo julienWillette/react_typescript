@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from './styles/elements';
+import { Badge } from "./styles/elements";
 
 export type SkillProps = {
   _id: string;

@@ -2,22 +2,19 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button, Error, Form, Input, Label } from "./styles/form-elements";
 
-const AddWilder(): JSX.Element {
+function AddWilder(): JSX.Element {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
   return (
     <Form
-      onSubmit={async (e) => {
+      onSubmit={async (e: { preventDefault: () => void }) => {
         e.preventDefault();
         try {
-          const result = await axios.post(
-            "http://localhost:5000/api/wilders",
-            {
-              name,
-              city,
-            }
-          );
+          const result = await axios.post("http://localhost:5000/api/wilders", {
+            name,
+            city,
+          });
           console.log(result);
           if (result.data.success) {
             setError("");
@@ -37,7 +34,9 @@ const AddWilder(): JSX.Element {
         type="text"
         placeholder="Type the name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+          setName(e.target.value)
+        }
       />
       <Label htmlFor="city-input">City :</Label>
       <Input
@@ -45,7 +44,9 @@ const AddWilder(): JSX.Element {
         type="text"
         placeholder="Type the city"
         value={city}
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+          setCity(e.target.value)
+        }
       />
       {error !== "" && <Error>{error}</Error>}
       <Button>Add</Button>

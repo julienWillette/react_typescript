@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
-import { CardRow, Container, Footer, Header } from './styles/elements';
-import Wilder from './Wilder';
-import AddWilder from './AddWilder';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./App.css";
+import { CardRow, Container, Footer, Header } from "./styles/elements";
+import Wilder, { WilderProps } from "./Wilder";
+import AddWilder from "./AddWilder";
 
-const App(): JSX.Element {
-  const [wilders, setWilders] = useState([]);
+function App(): JSX.Element {
+  const [wilders, setWilders] = useState<WilderProps[]>([]);
 
   useEffect(() => {
     const fetchWilders = async () => {
@@ -34,13 +34,13 @@ const App(): JSX.Element {
       <Container>
         <h2>Wilders</h2>
         <CardRow>
-          {wilders.map((wilder) => (
+          {wilders.map((wilder, i) => (
             <Wilder
-            key={wilder._id}
-            name={wilder.name}
-            city={wilder.city}
-            skills={wilder.skills}
-          />
+              key={i}
+              name={wilder.name}
+              city={wilder.city}
+              skills={wilder.skills}
+            />
           ))}
         </CardRow>
       </Container>
