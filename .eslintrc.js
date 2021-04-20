@@ -1,15 +1,10 @@
 module.exports = {
   env: {
+    es2021: true,
     browser: true,
-    es2020: true,
-    jest: true,
   },
   extends: [
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:jest/recommended',
     'airbnb',
   ],
   parser: '@typescript-eslint/parser',
@@ -19,12 +14,10 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.json',
   },
   plugins: [
     'react',
     '@typescript-eslint',
-    'jest',
   ],
   rules: {
     'react/jsx-filename-extension': [2, 
@@ -32,5 +25,7 @@ module.exports = {
     ],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"]
-  },
+  }
+    
+  
 };

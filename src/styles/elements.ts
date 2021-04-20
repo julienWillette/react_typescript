@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { colors } from './globals';
+import styled from "styled-components";
+import { colors } from "./globals";
 
 type CardProps = {
-  newCard: boolean
+  newCard: boolean;
 };
 
 type BadgeProps = {
-  votes: number
+  votes: number;
 };
 
 export const Header = styled.header`
@@ -84,7 +84,8 @@ export const Badge = styled.span<BadgeProps>`
   justify-content: center;
 
   /* Colors */
-  background-color: ${({ votes }) => (votes > 9 ? 'rgba(0, 100, 0, 0.3)' : 'rgba(0, 0, 0, 0.3)')};
+  background-color: ${({ votes }) =>
+    votes > 9 ? "rgba(0, 100, 0, 0.3)" : "rgba(0, 0, 0, 0.3)"};
   color: #fff;
   /* Rounded border */
   border-radius: 9999px;
